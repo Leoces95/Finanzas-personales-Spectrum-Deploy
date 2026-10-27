@@ -1,0 +1,9 @@
+.vs/
+.vscode/
+bin/
+obj/
+publish/
+*.user
+*.log
+Thumbs.db
+.env
