@@ -89,6 +89,8 @@ Finanzas-personales-Spectrum-Deploy/
 
 ### Ejecutar en local
 
+**Repositorio: https://github.com/Leoces95/Finanzas-personales-Spectrum-Deploy**
+
 **Con Visual Studio**
 
 1. Clonar el repositorio: `git clone https://github.com/Leoces95/Finanzas-personales-Spectrum-Deploy.git`
