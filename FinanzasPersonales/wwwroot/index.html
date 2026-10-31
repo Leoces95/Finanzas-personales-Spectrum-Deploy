@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Libro de cuentas · Finanzas personales</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="portada">
+    <p class="sobretitulo">Finanzas personales</p>
+    <h1>Libro de cuentas</h1>
+    <p class="subtitulo">Lo que entra, lo que sale y lo que queda.</p>
+  </header>
+
+  <main class="pagina">
+    <section class="balance" aria-label="Balance">
+      <dl>
+        <div><dt>Entradas</dt><dd id="total-ingresos" class="cifra">0</dd></div>
+        <div><dt>Salidas</dt><dd id="total-gastos" class="cifra">0</dd></div>
+        <div class="total"><dt>Queda</dt><dd id="saldo" class="cifra">0</dd></div>
+      </dl>
+    </section>
+
+    <div class="columnas">
+      <section class="asiento" aria-labelledby="titulo-form">
+        <h2 id="titulo-form">Nuevo asiento</h2>
+        <form id="form-movimiento" autocomplete="off">
+          <input type="hidden" id="movimiento-id">
+
+          <label for="fecha">Fecha</label>
+          <input type="date" id="fecha" required>
+
+          <label for="descripcion">Concepto</label>
+          <input type="text" id="descripcion" required maxlength="60">
+
+          <label for="categoria">Categoría</label>
+          <select id="categoria">
+            <option>Vivienda</option>
+            <option>Comida</option>
+            <option>Transporte</option>
+            <option>Estudio</option>
+            <option>Ocio</option>
+            <option>Salud</option>
+            <option>Salario</option>
+            <option>Otros</option>
+          </select>
+
+          <label for="tipo">Clase</label>
+          <select id="tipo">
+            <option value="gasto">Salida (gasto)</option>
+            <option value="ingreso">Entrada (ingreso)</option>
+          </select>
+
+          <label for="monto">Valor en COP</label>
+          <input type="number" id="monto" required min="1" step="any">
+
+          <div class="acciones">
+            <button type="submit" id="btn-guardar">Anotar</button>
+            <button type="button" id="btn-cancelar" class="secundario" hidden>Cancelar</button>
+          </div>
+        </form>
+      </section>
+
+      <section class="registro" aria-labelledby="titulo-lista">
+        <div class="registro-cabecera">
+          <h2 id="titulo-lista">Registro</h2>
+          <label for="filtro" class="oculto">Filtrar</label>
+          <select id="filtro">
+            <option value="todos">Todo</option>
+            <option value="ingreso">Solo entradas</option>
+            <option value="gasto">Solo salidas</option>
+          </select>
+        </div>
+
+        <table>
+          <thead>
+            <tr>
+              <th>Fecha</th>
+              <th>Concepto</th>
+              <th>Categoría</th>
+              <th class="der">Valor</th>
+              <th><span class="oculto">Acciones</span></th>
+            </tr>
+          </thead>
+          <tbody id="lista-movimientos"></tbody>
+        </table>
+        <p id="sin-movimientos" class="vacio">Todavía no hay nada anotado.</p>
+      </section>
+    </div>
+  </main>
+
+  <footer class="pie">Despliegue de Software · 2026</footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
