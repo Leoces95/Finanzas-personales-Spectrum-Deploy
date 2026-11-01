@@ -2,7 +2,7 @@
 
 Práctica 3 · Despliegue de Software · 2026
 
-O sea, básicamente en esta práctica tomamos una aplicación web de finanzas personales (API REST en .NET 10 con un CRUD completo y un frontend en HTML/CSS/JS) y la publicamos en dos entornos: primero en un servidor local con **IIS** y después en la nube con **Azure App Service**.
+En esta práctica se toma una aplicación web de finanzas personales (API REST en .NET 10 con un CRUD completo y un frontend en HTML/CSS/JS) y la publicamos en dos entornos: primero en un servidor local con **IIS** y después en la nube con **Azure App Service**.
 
 ## Integrantes
 
@@ -24,7 +24,7 @@ O sea, básicamente en esta práctica tomamos una aplicación web de finanzas pe
 
 ## Tecnología utilizada
 
-Bueno, digamos que las tecnologías que usamos fueron:
+Las tecnologías utilizadas son:
 
 - **.NET 10 (ASP.NET Core Web API):** API estructurada con controladores y validación del modelo.
 - **HTML, CSS y JavaScript:** frontend estático servido desde `wwwroot`, sin dependencias externas.
@@ -77,7 +77,7 @@ Finanzas-personales-Spectrum-Deploy/
 | Azure App Service | 31/10/2026 | https://finanzas-personales-spectrum-deploy-g4budhgbf7f9h9fk.brazilsouth-01.azurewebsites.net/ |
 
 - Comprobación de salud: `/health` responde `OK` en ambos entornos.
-- Video de evidencia: _pendiente_
+- Video de evidencia: _pendiente de publicar_
 
 ## Cómo reproducirlo
 
@@ -123,12 +123,16 @@ La carpeta `publish` se usa tanto en IIS como en Azure. También se puede hacer 
 |---|---|---|
 | IIS | `http://localhost:8085` | Se ve el libro de cuentas y el CRUD funciona |
 | IIS | `http://localhost:8085/health` | `OK` |
-| Azure | `https://<nombre-app>.azurewebsites.net` | Se ve el libro de cuentas y el CRUD funciona |
-| Azure | `https://<nombre-app>.azurewebsites.net/health` | `OK` |
+| Azure | `https://finanzas-personales-spectrum-deploy-g4budhgbf7f9h9fk.brazilsouth-01.azurewebsites.net` | Se ve el libro de cuentas y el CRUD funciona |
+| Azure | `https://finanzas-personales-spectrum-deploy-g4budhgbf7f9h9fk.brazilsouth-01.azurewebsites.net/health` | `OK` |
 
 ## Notas para verificar el despliegue
 
 - **Datos en memoria:** al reiniciar la aplicación (o reciclar el Application Pool) el registro queda vacío. Es el comportamiento esperado.
 - **IIS:** requiere el **.NET 10 Hosting Bundle** instalado. Application Pool dedicado con "Sin código administrado", sitio apuntando a la carpeta publicada y puerto propio. Puerto usado: **8085**.
-- **Azure:** App Service con runtime .NET 10, Application Setting `ASPNETCORE_ENVIRONMENT=Production` y **HTTPS Only** habilitado. _Nombre del recurso: pendiente._
+- **Azure:** App Service con runtime .NET 10, Application Setting `ASPNETCORE_ENVIRONMENT=Production` y **HTTPS Only** habilitado.
+  - Recurso: `finanzas-personales-spectrum-deploy` (grupo de recursos `rg-finanzas-personales`, suscripción Azure for Students).
+  - Región Brazil South, sistema operativo Windows, plan de tarifa Gratis (F1).
+  - Publicación desde Visual Studio con Zip Deploy. Para descargar el perfil de publicación se habilitó la autenticación básica de SCM de forma temporal. El perfil de publicación no se incluye en el repositorio.
+  - Nota: el plan gratuito suspende la app tras un tiempo sin tráfico, por lo que la primera carga puede tardar unos segundos.
 - Las capturas están en `evidencias/iis/` y `evidencias/azure/`, sin secretos ni credenciales.
