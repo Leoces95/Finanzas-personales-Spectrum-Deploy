@@ -7,3 +7,7 @@ publish/
 *.log
 Thumbs.db
 .env
+
+# Perfiles de publicacion de Azure (contienen datos de la suscripcion y credenciales)
+**/Properties/PublishProfiles/
+*.PublishSettings
