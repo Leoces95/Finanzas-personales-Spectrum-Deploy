@@ -73,8 +73,8 @@ Finanzas-personales-Spectrum-Deploy/
 
 | Entorno | Fecha | URL |
 |---|---|---|
-| IIS (local) | _pendiente_ | `http://localhost:8085` |
-| Azure App Service | _pendiente_ | _pendiente (https)_ |
+| IIS (local) | 31/10/2026 | `http://localhost:8085` |
+| Azure App Service | 31/10/2026 | https://finanzas-personales-spectrum-deploy-g4budhgbf7f9h9fk.brazilsouth-01.azurewebsites.net/ |
 
 - Comprobación de salud: `/health` responde `OK` en ambos entornos.
 - Video de evidencia: _pendiente_
