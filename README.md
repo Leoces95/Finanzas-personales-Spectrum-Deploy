@@ -77,7 +77,7 @@ Finanzas-personales-Spectrum-Deploy/
 | Azure App Service | 30/10/2026 | https://finanzas-personales-spectrum-deploy-g4budhgbf7f9h9fk.brazilsouth-01.azurewebsites.net/ |
 
 - Comprobación de salud: `/health` responde `OK` en ambos entornos.
-- Video de evidencia: _pendiente de publicar_
+- Video de evidencia: https://drive.google.com/file/d/197oJPfGfUikLE10zmuZ95jQqtNaoAwfF/view?usp=sharing
 
 ## Cómo reproducirlo
 
